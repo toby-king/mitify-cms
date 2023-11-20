@@ -262,23 +262,6 @@
         padding: .5rem 2rem;
         text-transform: uppercase;
     }
-    footer {
-        background-color: #02498B;
-    }
-    .footer-content {
-        width: 80%;
-        margin: 0 auto;
-    }
-    footer img {
-        height: 60px;
-        width: 60px;
-    }
-    footer p {
-        font-family: "Oswald";
-        color: #fff;
-        display: inline;
-        letter-spacing: 1px;
-    }
     /* Animations */
 
     .animate-reveal-y {
@@ -466,13 +449,6 @@
             height: 80px;
             width: 80px;
         }
-        footer p {
-            font-size: 0.8rem;
-        }
-        footer img {
-            height: 45px;
-            width: 45px;
-        }
     }
     @media screen and (min-width: 768px) {
         .menu-toggle {
@@ -523,7 +499,7 @@
         
                 <div class="collapse navbar-collapse justify-content-end" id="collapseNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
                         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="#solutions">Solutions</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
@@ -736,9 +712,3 @@
         </div>
     </div>
 </div>
-<footer>
-    <div class="footer-content">
-        <img src="/images/icon.png" alt="Mitify+ Logo">
-        <p>&copy DTF Media Group Ltd. 2023.</p>
-    </div>
-</footer>
