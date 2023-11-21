@@ -1,59 +1,18 @@
 <script>
     import { onMount } from 'svelte';
+    import { slugify } from '$lib/utils';
+    import { getPosts } from '$lib/blogServices';
     
     let posts = [];
+
+    onMount(async () => {
+        posts = await getPosts();
+        console.log(posts);
+    });
     let content;
     let error = null;
     
-    onMount(async () => {
-        const parseJSON = (resp) => (resp.json ? resp.json() : resp);
-        const checkStatus = (resp) => {
-        if (resp.status >= 200 && resp.status < 300) {
-          return resp;
-        }
-        return parseJSON(resp).then((resp) => {
-          throw resp;
-        });
-      };
-      const headers = {
-        'Content-Type': 'application/json',
-      };
-
-      const query = new URLSearchParams({
-        populate: '*',
-        fields: '*',
-        publicationState: 'live',
-        locale: 'en'
-      });
-      
-      const url = `${'http://localhost:1337'}/api/posts?${query}`;
     
-        try {
-            const res = await fetch(url, {
-              method: "GET",
-              headers: {
-                 'Content-Type': 'application/json'
-              },
-            }).then(checkStatus)
-          .then(parseJSON);
-            posts = res.data;
-
-            posts.forEach(element => {
-              const dateObject = new Date(element.attributes.publishedAt);
-
-              const options = { 
-                year: "numeric", 
-                month: "short", 
-                day: "numeric"
-              }
-
-              element.attributes.publishedAt = dateObject.toLocaleDateString("en-gb", options)
-            });
-            console.log(posts)
-        } catch (e) {
-            error = e
-        }
-    });
 </script>
 
 <style>
@@ -90,6 +49,7 @@
     }
     #page {
         padding: 0;
+        min-height: 100vh;
     }
     .page-content {
         width: 100%;
@@ -221,8 +181,8 @@
       </nav>
   </div>
 
-  <div class="posts-wrapper w-100">
-    <div class="row">
+  <div class="posts-wrapper w-100 page-content mt-5">
+    <div class="row w-100">
       {#if error !== null}
         {error}
       {:else}
@@ -246,7 +206,7 @@
                             { post.attributes.description }
                         </p>
                       <p>
-                          <a href="" style="color:#02498B;">
+                          <a href="blog/{slugify(post.attributes.title)}" style="color:#02498B;">
                               Read more →
                           </a>
                       </p>
