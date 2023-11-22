@@ -143,30 +143,6 @@
 </style>
 
 <div class="container-fluid" id="page">
-    <div class="nav-wrapper landing-nav" id="top">
-        <nav class="navbar navbar-expand-md page-content" id="banner">
-            <a href="/">
-                <img src="images/icon.png" alt="Mitify+ Logo" class="logo">
-            </a>
-            <h1 class="logo-title">MITIFY+</h1>
-    
-            <div class=menu-toggle>
-                <label for="check" onclick="checkCheck()">
-                    <input type="checkbox" id="check" data-toggle="collapse" data-target="#collapseNav">
-                    <div class="hamburger"></div>
-                </label>
-            </div>
-    
-            <div class="collapse navbar-collapse justify-content-end" id="collapseNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/#solutions">Solutions</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/#contact">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
-    </div>
     <div class="landing-content">
         <h1 class="title mt-3">Have you seen what Mitify+ does?</h1>
         <iframe width="100%" height="100%" src="https://www.youtube.com/embed/4d04FytZBQ0?si=yb2MjT9v06Ry5fGW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

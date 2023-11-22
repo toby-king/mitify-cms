@@ -10,6 +10,16 @@
             checkbox.checked = false;
         });
     });*/
+    import { onMount } from 'svelte';
+    import { slugify } from '$lib/utils';
+    import { getPosts } from '$lib/blogServices';
+    
+    let posts = [];
+
+    onMount(async () => {
+        posts = await getPosts();
+        console.log(posts);
+    });
 </script>
 
 <style>
@@ -261,6 +271,33 @@
         border: none;
         padding: .5rem 2rem;
         text-transform: uppercase;
+    }
+    .posts-wrapper {
+        width: 75vw;
+        margin: 0 auto;
+    }
+    .posts-wrapper a:hover {
+        text-decoration: none;
+    }
+    .post {
+        padding: 0;
+        overflow: hidden;
+        transition: .3s ease-in-out;
+    }
+    .post img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+    .post-content {
+        padding-top: 1rem;
+    }
+    .post-content a {
+        font-family: "Oswald";
+        font-weight: bold;
+    }
+    .post-date {
+        color: #757575;
     }
     /* Animations */
 
@@ -680,6 +717,38 @@
         </picture>
         <p>The use of fake images to spread propaganda by augmenting the past or manipulating the present is as old as photography, but the rise of AI technology has made it easy for anyone with a laptop and an internet connection to create and distribute utra-realistic deep fakes.</p>
         <p>We have built a solution that identifies manipulated objects, checks image authenticity, and verifies political figures to make sure we're serving society with real and trustworthy sources.</p>
+    </div>
+    <div class="row posts-wrapper mt-5">
+        <h1 class="title">Latest Posts</h1>
+        {#each [...posts].reverse() as post}
+            <div class="col-lg-4">
+                <a href="blog/{slugify(post.attributes.title)}">
+                    <div class="post mb-4">
+                        <img src="http://localhost:1337{ post.attributes.thumbnail.data.attributes.url }" alt="Post Thumbnail">
+                        <div class="post-content">
+                            <h3>
+                                <a href="blog/{slugify(post.attributes.title)}">
+                                    {post.attributes.title}
+                                </a>
+                            </h3>
+                            <p>
+                                <time class="post-date">
+                                    {post.attributes.publishedAt}
+                                </time>
+                            </p>
+                            <p>
+                                { post.attributes.description }
+                            </p>
+                            <p>
+                                <a href="blog/{slugify(post.attributes.title)}" style="color:#02498B;">
+                                    Read more →
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {/each}
     </div>
     <div class="page-content">
         <div class="style-wrapper-4">

@@ -11,8 +11,6 @@
     });
     let content;
     let error = null;
-    
-    
 </script>
 
 <style>
@@ -33,14 +31,17 @@
         color: #000;
         text-decoration: none;
     }
-    h1 {
-        font-family: "Oswald";
-        text-transform: uppercase;
-    }
     .title {
         color: #02498B;
         font-weight: 800;
         letter-spacing: 2px;
+        text-transform: uppercase;
+        font-family: "Oswald";
+    }
+    .page-content {
+        width: 100%;
+        max-width: 80vw;
+        margin: 0 auto;
     }
     .posts-wrapper {
         width: 75vw;
@@ -60,70 +61,39 @@
         object-fit: cover;
     }
     .post-content {
-        padding: 1rem;
+        padding-top: 1rem;
     }
     .post-content a {
         font-family: "Oswald";
+        font-weight: bold;
     }
     .post-date {
         color: #757575;
     }
-    @media screen and (max-width: 768px) {
-        .navbar-nav {
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-        .navbar-collapse {
-            justify-content: center !important;
-        }
-    }
-    @media screen and (min-width: 768px) {
-        .menu-toggle {
-            opacity: 0;
-            display: none;
-        }
+    .container-fluid {
+        min-height: 82vh;
     }
 </style>
 
-<div class="container-fluid" id="page">
-  <div class="nav-wrapper blog-nav" id="top">
-      <nav class="navbar navbar-expand-md page-content" id="banner">
-          <a href="/">
-              <img src="images/icon.png" alt="Mitify+ Logo" class="logo">
-          </a>
-          <h1 class="logo-title">MITIFY+</h1>
-  
-          <div class=menu-toggle>
-              <label for="check" onclick="checkCheck()">
-                  <input type="checkbox" id="check" data-toggle="collapse" data-target="#collapseNav">
-                  <div class="hamburger"></div>
-              </label>
-          </div>
-  
-          <div class="collapse navbar-collapse justify-content-end" id="collapseNav">
-              <ul class="navbar-nav">
-                  <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                  <li class="nav-item"><a class="nav-link" href="/#about">About</a></li>
-                  <li class="nav-item"><a class="nav-link" href="/#solutions">Solutions</a></li>
-                  <li class="nav-item"><a class="nav-link" href="/#contact">Contact</a></li>
-              </ul>
-          </div>
-      </nav>
-  </div>
+<svelte:head>
+    <title>Latest Posts | Mitify+</title>
+</svelte:head>
 
+<div class="container-fluid" id="page">
   <div class="posts-wrapper w-100 page-content mt-5">
+    <h1 class="title">Latest Posts</h1>
     <div class="row w-100">
       {#if error !== null}
         {error}
       {:else}
         {#each [...posts].reverse() as post}
           <div class="col-lg-4">
-            <a href="">
+            <a href="blog/{slugify(post.attributes.title)}">
               <div class="post mb-4">
                   <img src="http://localhost:1337{ post.attributes.thumbnail.data.attributes.url }" alt="Post Thumbnail">
                   <div class="post-content">
                       <h3>
-                          <a href="">
+                          <a href="blog/{slugify(post.attributes.title)}">
                               {post.attributes.title}
                           </a>
                       </h3>

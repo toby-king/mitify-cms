@@ -1,6 +1,6 @@
 <script>
-    export let data;
-    console.log(data.params);
+    import { page } from '$app/stores';
+    console.log('page.params', $page.route.id);
 </script>
 
 <style>
@@ -25,19 +25,18 @@
         font-family: "Oswald";
         text-transform: uppercase;
     }
+    .nav-wrapper {
+        border-bottom: 1px solid #02498B;
+    }
     .nav-link {
-        color: #fff !important;
+        color: #02498B !important;
     }
     .nav-link:hover {
-        color: #fff;
+        color: #02498B;
     }
     a:hover {
         color: #000;
         text-decoration: underline;
-    }
-    #page {
-        padding: 0;
-        min-height: 100vh;
     }
     .page-content {
         width: 100%;
@@ -45,27 +44,24 @@
         margin: 0 auto;
     }
     .logo {
-        max-width: 5rem;
+        max-width: 4rem;
     }
     .logo-title {
         font-family: "Oswald";
         letter-spacing: 9.6px;
         font-weight: 700;
-        color: #fff;
+        color: #000;
         margin-left: 1.5rem;
     }
     .nav-item {
         margin: 0 1rem 0 1rem;
-    }
-    .blog-nav {
-        background-image: url("/images/header3.png");
     }
     .hamburger,
     .hamburger::before,
     .hamburger::after {
         content: "";
         display: block;
-        background: #fff;
+        background: #02498B;
         width: 1.5rem;
         height: 0.25rem;
     }
@@ -138,31 +134,35 @@
     }
 </style>
 
+{#if $page.route.id != "/"}
+    <div class="nav-wrapper blog-nav" id="top">
+        <nav class="navbar navbar-expand-md page-content" id="banner">
+            <a href="/">
+                <img src="/images/icon2.png" alt="Mitify+ Logo" class="logo">
+            </a>
+            <h1 class="logo-title">MITIFY+</h1>
 
-<div class="nav-wrapper blog-nav" id="top">
-    <nav class="navbar navbar-expand-md page-content" id="banner">
-        <a href="/">
-            <img src="/images/icon.png" alt="Mitify+ Logo" class="logo">
-        </a>
-        <h1 class="logo-title">MITIFY+</h1>
+            <div class=menu-toggle>
+                <label for="check" onclick="checkCheck()">
+                    <input type="checkbox" id="check" data-toggle="collapse" data-target="#collapseNav">
+                    <div class="hamburger"></div>
+                </label>
+            </div>
 
-        <div class=menu-toggle>
-            <label for="check" onclick="checkCheck()">
-                <input type="checkbox" id="check" data-toggle="collapse" data-target="#collapseNav">
-                <div class="hamburger"></div>
-            </label>
-        </div>
-
-        <div class="collapse navbar-collapse justify-content-end" id="collapseNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="/#about">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="/#solutions">Solutions</a></li>
-                <li class="nav-item"><a class="nav-link" href="/#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-</div>
+            <div class="collapse navbar-collapse justify-content-end" id="collapseNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    {#if $page.route.id != "/blog"}
+                        <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
+                    {/if}
+                    <li class="nav-item"><a class="nav-link" href="/#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#solutions">Solutions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+{/if}
 <slot></slot>
 <footer>
     <div class="footer-content">
