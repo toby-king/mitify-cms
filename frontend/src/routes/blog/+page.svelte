@@ -16,7 +16,7 @@
 </script>
 
 <style>
-  @font-face {
+    @font-face {
         font-family: "Montserrat";
         src: url("/fonts/Montserrat-Regular.ttf");
         font-display: swap;
@@ -36,76 +36,6 @@
     h1 {
         font-family: "Oswald";
         text-transform: uppercase;
-    }
-    .nav-link {
-        color: #fff !important;
-    }
-    .nav-link:hover {
-        color: #fff;
-    }
-    a:hover {
-        color: #000;
-        text-decoration: underline;
-    }
-    #page {
-        padding: 0;
-        min-height: 100vh;
-    }
-    .page-content {
-        width: 100%;
-        max-width: 80vw;
-        margin: 0 auto;
-    }
-    .logo {
-        max-width: 5rem;
-    }
-    .logo-title {
-        font-family: "Oswald";
-        letter-spacing: 9.6px;
-        font-weight: 700;
-        color: #fff;
-        margin-left: 1.5rem;
-    }
-    .nav-item {
-        margin: 0 1rem 0 1rem;
-    }
-    .blog-nav {
-        background-image: url("/images/header3.png");
-    }
-    .hamburger,
-    .hamburger::before,
-    .hamburger::after {
-        content: "";
-        display: block;
-        background: #fff;
-        width: 1.5rem;
-        height: 0.25rem;
-    }
-    .hamburger::before {
-        transform: translateY(-0.5rem);
-        transition: all 0.5s;
-    }
-    .hamburger::after {
-        transform: translateY(-0.1rem);
-        transition: all 0.5s;
-    }
-    .hamburger {
-        background: none;
-        transition: all 0.5s;
-        z-index: 2;
-        position: relative;
-    }
-    input[type="checkbox"] {
-        display: none;
-    }
-    input[type="checkbox"]:checked ~ .hamburger::before {
-        transform: rotate(45deg) translateX(0rem) translateY(-0rem);
-    }
-    input[type="checkbox"]:checked ~ .hamburger::after {
-        transform: rotate(-45deg) translateX(0.15rem) translateY(-0.2rem);
-    }
-    input[type="checkbox"]:checked ~ .hamburger {
-        transform: translateY(-0.1rem);
     }
     .title {
         color: #02498B;
