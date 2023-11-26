@@ -6,7 +6,7 @@ export async function getPosts() {
     locale: 'en'
   });
   
-  const url = `${'http://139.162.234.32:1337'}/api/posts?${query}`;
+  const url = `${'https://content.mitifyplus.com'}/api/posts?${query}`;
 
   const response = await fetch(url);
   let data = await response.json();

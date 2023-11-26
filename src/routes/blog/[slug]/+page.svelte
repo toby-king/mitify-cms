@@ -120,7 +120,7 @@
           <h1 class="text-center mt-3 post-title">{post.title}</h1>
           <p class="post-date text-center">{post.publishedAt}</p>
           <div class="thumbnail-wrapper text-center mb-5">
-              <img src="http://139.162.234.32:1337{post.thumbnail.data.attributes.url}" alt="Post Thumbnail">
+              <img src="http://content.mitifyplus.com{post.thumbnail.data.attributes.url}" alt="Post Thumbnail">
           </div>
           <div class="mb-5">
             {@html post.content}
@@ -140,7 +140,7 @@
           <div class="col-lg-4">
             <a href="{slugify(post.attributes.title)}">
               <div class="post mb-4">
-                  <img src="http://139.162.234.32:1337{ post.attributes.thumbnail.data.attributes.url }" alt="Post Thumbnail">
+                  <img src="http://content.mitifyplus.com{ post.attributes.thumbnail.data.attributes.url }" alt="Post Thumbnail">
                   <div class="post-content">
                       <h3>
                           <a href="{slugify(post.attributes.title)}">

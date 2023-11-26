@@ -90,7 +90,7 @@
           <div class="col-lg-4">
             <a href="blog/{slugify(post.attributes.title)}">
               <div class="post mb-4">
-                  <img src="http://139.162.234.32:1337{ post.attributes.thumbnail.data.attributes.url }" alt="Post Thumbnail">
+                  <img src="http://content.mitifyplus.com{ post.attributes.thumbnail.data.attributes.url }" alt="Post Thumbnail">
                   <div class="post-content">
                       <h3>
                           <a href="blog/{slugify(post.attributes.title)}">
