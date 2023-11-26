@@ -1,1 +1,1 @@
-# mitify-cms
+# MITIFY+ Svelte Frontend

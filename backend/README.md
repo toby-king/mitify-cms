@@ -1,1 +1,0 @@
-# MITIFY+ Strap Backend

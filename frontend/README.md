@@ -1,1 +1,0 @@
-# MITIFY+ Svelte Frontend
